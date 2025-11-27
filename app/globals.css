@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 16 98% 41%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 16 98% 41%;
+    --radius: 0rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-light;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+main {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* For better iOS scrolling */
+}
+
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding-top: 60px; /* Account for smaller navbar */
+}
+
+/* Improve section vertical alignment */
+section > .container {
+  margin: auto 0;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Fix navbar to stay visible */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+/* Adjust footer to work with snap scrolling */
+footer {
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Force dark navbar on all sections except hero */
+section:not(:first-of-type) {
+  background-color: white;
+}
+
+/* Special case for FAQ and Footer combined section */
+#faq {
+  min-height: auto;
+  padding-bottom: 0;
+}
