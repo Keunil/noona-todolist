@@ -54,7 +54,7 @@ export default function ExpertDashboardPage() {
       client: "김민준 (매수자)",
       industry: "IT/소프트웨어",
       budget: "5,000만 원",
-      deadline: "2024-01-15",
+      deadline: "2025-01-15",
       status: "new",
       description: "클라우드 기반 SaaS 기업에 대한 재무·사업·기술 실사 요청",
     },
@@ -64,7 +64,7 @@ export default function ExpertDashboardPage() {
       client: "이서연 (매도자)",
       industry: "제조업",
       budget: "3,000만 원",
-      deadline: "2024-01-20",
+      deadline: "2025-01-20",
       status: "pending",
       description: "자동차 부품 제조 기업의 기업가치평가 및 매각 자문",
     },
@@ -74,7 +74,7 @@ export default function ExpertDashboardPage() {
       client: "박준호 (매수자)",
       industry: "바이오/헬스케어",
       budget: "2,000만 원",
-      deadline: "2024-01-10",
+      deadline: "2025-01-10",
       status: "in-progress",
       description: "바이오 헬스케어 스타트업 인수 관련 계약서 작성",
     },
@@ -87,7 +87,7 @@ export default function ExpertDashboardPage() {
       title: "에듀테크 기업 실사",
       client: "최수진",
       progress: 75,
-      deadline: "2024-01-05",
+      deadline: "2025-01-05",
       amount: "4,500만 원",
     },
     {
@@ -95,7 +95,7 @@ export default function ExpertDashboardPage() {
       title: "물류 스타트업 가치평가",
       client: "정우성",
       progress: 40,
-      deadline: "2024-01-12",
+      deadline: "2025-01-12",
       amount: "3,500만 원",
     },
   ]
@@ -253,11 +253,11 @@ export default function ExpertDashboardPage() {
             <CardContent>
               <div className="space-y-3">
                 {[
-                  "IT 서비스 기업 실사 및 가치평가 (2023.11)",
-                  "제조업 M&A 재무자문 (2023.09)",
-                  "스타트업 투자 실사 (2023.08)",
-                  "바이오 기업 기업가치평가 (2023.06)",
-                  "물류 기업 인수 자문 (2023.04)",
+                  "IT 서비스 기업 실사 및 가치평가 (2025.11)",
+                  "제조업 M&A 재무자문 (2025.09)",
+                  "스타트업 투자 실사 (2025.08)",
+                  "바이오 기업 기업가치평가 (2025.06)",
+                  "물류 기업 인수 자문 (2025.04)",
                 ].map((item, index) => (
                   <div key={index} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
                     <CheckCircle2 className="h-4 w-4 text-green-600" />

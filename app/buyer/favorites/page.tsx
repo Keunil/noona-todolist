@@ -29,7 +29,7 @@ export default function FavoritesPage() {
       employees: "25명",
       description:
         "클라우드 기반 보안 솔루션을 제공하는 성장 중인 IT 기업입니다. 최근 3년간 연평균 성장률 35%를 기록하고 있으며, 안정적인 구독형 수익 모델을 갖추고 있습니다.",
-      postedDate: "2023-05-15",
+      postedDate: "2025-05-15",
       status: "hot" as const,
       verified: true,
     },
@@ -44,7 +44,7 @@ export default function FavoritesPage() {
       employees: "42명",
       description:
         "스마트 팩토리 자동화 설비를 설계 및 제조하는 기업입니다. 국내 주요 대기업과의 안정적인 거래처를 확보하고 있으며, 특허 기술 다수 보유하고 있습니다.",
-      postedDate: "2023-05-20",
+      postedDate: "2025-05-20",
       status: "new" as const,
       verified: false,
     },
@@ -59,7 +59,7 @@ export default function FavoritesPage() {
       employees: "18명",
       description:
         "혁신적인 의료기기를 개발하는 바이오헬스케어 스타트업입니다. FDA 및 식약처 인증을 완료했으며, 해외 시장 진출을 준비 중입니다.",
-      postedDate: "2023-05-25",
+      postedDate: "2025-05-25",
       status: "exclusive" as const,
       verified: true,
     },
@@ -74,7 +74,7 @@ export default function FavoritesPage() {
       employees: "15명",
       description:
         "K-12 대상 온라인 교육 콘텐츠 및 플랫폼을 제공하는 에듀테크 기업입니다. 월간 활성 사용자 5만명을 보유하고 있으며, 구독형 비즈니스 모델로 안정적인 수익을 창출하고 있습니다.",
-      postedDate: "2023-06-01",
+      postedDate: "2025-06-01",
       status: "closing" as const,
       verified: false,
     },
@@ -89,7 +89,7 @@ export default function FavoritesPage() {
       employees: "28명",
       description:
         "친환경 식품 제조 및 유통 기업입니다. 유기농 인증을 받은 제품 라인업을 보유하고 있으며, 대형 마트 및 온라인 채널을 통해 안정적인 매출을 올리고 있습니다.",
-      postedDate: "2023-06-05",
+      postedDate: "2025-06-05",
       status: "new" as const,
       verified: false,
     },
@@ -104,7 +104,7 @@ export default function FavoritesPage() {
       employees: "35명",
       description:
         "물류 자동화 및 최적화 솔루션을 제공하는 기업입니다. 자체 개발한 WMS(창고관리시스템)과 TMS(운송관리시스템)를 보유하고 있으며, 대기업 및 중견기업을 주요 고객으로 확보하고 있습니다.",
-      postedDate: "2023-06-10",
+      postedDate: "2025-06-10",
       status: "new" as const,
       verified: false,
     },
