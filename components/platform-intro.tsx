@@ -18,9 +18,9 @@ export default function PlatformIntro() {
   const features = [
     {
       title: "검증된 매물",
-      description: "삼일회계법인의 딜 어드바이저들이 선별한 고품질 매물로 시간 낭비 없는 투자 기회",
+      description: "DealMate의 딜 어드바이저들이 선별한 고품질 매물로 시간 낭비 없는 투자 기회",
       icon: <Shield className="h-6 w-6 text-[#F4511E]" />,
-      stats: "100% 전문가 검증",
+      stats: "100% 자문사 검증",
     },
     {
       title: "엄격한 심사",
@@ -29,10 +29,10 @@ export default function PlatformIntro() {
       stats: "3단계 검증 프로세스",
     },
     {
-      title: "전문가 지원",
-      description: "법률·세무·회계 전문가가 딜 전 과정을 지원하여 안전하고 효율적인 거래 진행",
+      title: "자문사 지원",
+      description: "법률·세무·회계 자문사가 딜 전 과정을 지원하여 안전하고 효율적인 거래 진행",
       icon: <Users className="h-6 w-6 text-[#F4511E]" />,
-      stats: "50+ 전담 전문가",
+      stats: "50+ 전담 자문사",
     },
   ]
 
@@ -58,8 +58,8 @@ export default function PlatformIntro() {
               M&A, 이제는 정보가 아닌 <span className="text-[#F4511E]">신뢰의 싸움</span>입니다
             </h2>
             <p className="text-xl text-gray-600 mb-8">
-              삼일회계법인의 M&A 플랫폼에서 검증된 매물과 투자자를 만나보세요. 국내 최고의 전문가 네트워크와 함께
-              성공적인 딜을 완성하세요.
+              DealMate의 M&A 플랫폼에서 검증된 매물과 투자자를 만나보세요. 국내 최고의 자문사 네트워크와 함께 성공적인
+              딜을 완성하세요.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -68,7 +68,7 @@ export default function PlatformIntro() {
               </Button>
               <Button
                 variant="outline"
-                className="border-gray-300 text-gray-900 hover:bg-gray-100 hover:text-gray-900 rounded-none px-6 py-5 text-base"
+                className="border-gray-300 text-gray-900 hover:bg-gray-100 hover:text-gray-900 rounded-none px-6 py-5 text-base bg-transparent"
               >
                 성공 사례 확인하기
               </Button>
@@ -79,7 +79,7 @@ export default function PlatformIntro() {
                 <Award className="h-5 w-5 text-[#F4511E]" />
               </div>
               <p className="text-gray-700">
-                <span className="font-bold">삼일회계법인</span>는 국내 M&A 자문 시장에서{" "}
+                <span className="font-bold">DealMate</span>는 국내 M&A 자문 시장에서{" "}
                 <span className="font-bold">1위</span>를 차지하고 있습니다.
               </p>
             </div>
@@ -106,7 +106,7 @@ export default function PlatformIntro() {
               <div className="relative h-[300px] rounded-lg overflow-hidden">
                 <img
                   src="/placeholder.svg?key=u8m79"
-                  alt="삼일회계법인 M&A Platform Dashboard"
+                  alt="DealMate M&A Platform Dashboard"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -177,7 +177,7 @@ export default function PlatformIntro() {
             <div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900">시장을 선도하는 M&A 플랫폼</h3>
               <p className="text-gray-600 mb-4">
-                삼일회계법인의 M&A 플랫폼은 단순한 매칭을 넘어 거래의 전 과정을 함께하는 파트너입니다. 우리의 전문성과
+                DealMate의 M&A 플랫폼은 단순한 매칭을 넘어 거래의 전 과정을 함께하는 파트너입니다. 우리의 전문성과
                 글로벌 네트워크가 여러분의 성공적인 딜을 보장합니다.
               </p>
               <div className="flex items-center text-[#F4511E] font-medium cursor-pointer">

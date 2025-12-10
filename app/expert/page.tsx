@@ -10,7 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 export default function ExpertDashboardPage() {
   const [activeTab, setActiveTab] = useState("profile")
 
-  // 전문가 통계 데이터
+  // 자문사 통계 데이터
   const stats = [
     {
       title: "인증 등급",
@@ -107,7 +107,7 @@ export default function ExpertDashboardPage() {
   const certifications = [
     { name: "공인회계사 (CPA)", issuer: "한국공인회계사회", year: "2015" },
     { name: "재무위험관리사 (FRM)", issuer: "GARP", year: "2017" },
-    { name: "M&A 전문가", issuer: "한국M&A협회", year: "2018" },
+    { name: "M&A 자문사", issuer: "한국M&A협회", year: "2018" },
   ]
 
   const experience = [
@@ -119,7 +119,7 @@ export default function ExpertDashboardPage() {
   return (
     <div className="space-y-8">
       <div className="text-center">
-        <h1 className="text-2xl font-bold text-gray-900">전문가 대시보드</h1>
+        <h1 className="text-2xl font-bold text-gray-900">자문사 대시보드</h1>
         <p className="text-gray-500 mt-1">인증 프로필 및 RFP 요청을 관리하세요</p>
       </div>
 
@@ -337,7 +337,7 @@ export default function ExpertDashboardPage() {
                 </div>
                 <div className="p-4 bg-yellow-50 rounded-lg">
                   <p className="text-2xl font-bold text-yellow-600">Gold</p>
-                  <p className="text-sm text-gray-600">전문가 등급</p>
+                  <p className="text-sm text-gray-600">자문사 등급</p>
                 </div>
               </div>
               <div className="space-y-3">

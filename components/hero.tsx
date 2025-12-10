@@ -1,17 +1,14 @@
 "use client"
-
-import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 
 export default function Hero() {
   return (
     <section className="relative flex items-center min-h-screen">
-      {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/30 z-10"></div>
         <img
-          src="https://www.pwc.com/gx/en/zz-test-brand-assets-pages-25/syc/custom-hero/syc-generic-desktop.jpg"
-          alt="PwC professionals in modern office environment"
+          src="/images/hero-background.jpg"
+          alt="DealMate professionals in modern office environment"
           className="w-full h-full object-cover"
         />
       </div>
@@ -24,7 +21,7 @@ export default function Hero() {
           className="max-w-4xl"
         >
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight whitespace-nowrap md:whitespace-normal">
-            Your next deals, powered by PwC Korea.
+            Your next deals, powered by DealMate.
           </h1>
 
           <h2 className="text-xl md:text-2xl font-light text-white mb-12 max-w-3xl">

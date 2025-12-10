@@ -24,7 +24,7 @@ export default function QuickAccessButtons() {
         href="/expert"
         className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"
       >
-        <span>전문가 페이지</span>
+        <span>자문사 페이지</span>
         <ArrowRight className="ml-2 h-4 w-4" />
       </Link>
     </div>

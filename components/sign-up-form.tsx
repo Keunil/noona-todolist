@@ -18,7 +18,7 @@ export default function SignUpForm() {
     name: "",
     company: "",
     phone: "",
-    userType: "seller", // Default to seller
+    userType: "seller",
   })
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
@@ -48,41 +48,34 @@ export default function SignUpForm() {
   const validateForm = () => {
     const newErrors = {}
 
-    // Email validation
     if (!formData.email) {
       newErrors.email = "이메일을 입력해주세요."
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "유효한 이메일 주소를 입력해주세요."
     }
 
-    // Password validation
     if (!formData.password) {
       newErrors.password = "비밀번호를 입력해주세요."
     } else if (formData.password.length < 8) {
       newErrors.password = "비밀번호는 8자 이상이어야 합니다."
     }
 
-    // Confirm password validation
     if (formData.password !== formData.confirmPassword) {
       newErrors.confirmPassword = "비밀번호가 일치하지 않습니다."
     }
 
-    // Name validation
     if (!formData.name) {
       newErrors.name = "이름을 입력해주세요."
     }
 
-    // Company validation
     if (!formData.company) {
       newErrors.company = "회사명을 입력해주세요."
     }
 
-    // Phone validation
     if (!formData.phone) {
       newErrors.phone = "전화번호를 입력해주세요."
     }
 
-    // Agreement validation
     if (!agreements.terms || !agreements.privacy) {
       newErrors.agreements = "필수 약관에 동의해주세요."
     }
@@ -100,13 +93,10 @@ export default function SignUpForm() {
 
     setIsLoading(true)
 
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1500))
 
-    // Reset loading state
     setIsLoading(false)
 
-    // In a real app, you would handle registration here
     console.log("Sign up with:", { ...formData, agreements })
   }
 
@@ -117,26 +107,19 @@ export default function SignUpForm() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      {/* Header */}
       <header className="bg-white shadow-sm py-4">
         <div className="container mx-auto px-6">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <img
-                src="https://crystalpng.com/wp-content/uploads/2025/05/pwc-logo.png"
-                alt="PwC Logo"
-                className="h-12 w-auto"
-              />
-              <div className="ml-4 border-l pl-4 flex flex-col justify-center border-gray-300">
-                <span className="text-xl font-bold text-gray-900">M&A Platform</span>
-                <span className="text-xs text-gray-500">삼일회계법인</span>
+              <div className="flex flex-col justify-center">
+                <span className="text-2xl font-bold text-gray-900">DealMate</span>
+                <span className="text-xs text-gray-500">M&A Platform</span>
               </div>
             </Link>
           </div>
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md">
           <motion.div
@@ -146,7 +129,6 @@ export default function SignUpForm() {
             transition={{ duration: 0.5 }}
             className="bg-white shadow-lg rounded-lg overflow-hidden"
           >
-            {/* Form Header */}
             <div className="relative h-16 bg-[#F4511E] flex items-center justify-center">
               <Link
                 href="/"
@@ -158,10 +140,8 @@ export default function SignUpForm() {
               <h1 className="text-xl font-bold text-white">회원가입</h1>
             </div>
 
-            {/* Form Content */}
             <div className="p-6">
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* User Type Selection */}
                 <div className="space-y-2">
                   <Label className="text-gray-700">회원 유형</Label>
                   <RadioGroup
@@ -181,10 +161,15 @@ export default function SignUpForm() {
                         투자자
                       </Label>
                     </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="advisor" id="advisor" />
+                      <Label htmlFor="advisor" className="cursor-pointer">
+                        자문사
+                      </Label>
+                    </div>
                   </RadioGroup>
                 </div>
 
-                {/* Email */}
                 <div className="space-y-2">
                   <Label htmlFor="email" className="text-gray-700">
                     이메일 주소 <span className="text-red-500">*</span>
@@ -205,7 +190,6 @@ export default function SignUpForm() {
                   {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                 </div>
 
-                {/* Password */}
                 <div className="space-y-2">
                   <Label htmlFor="password" className="text-gray-700">
                     비밀번호 <span className="text-red-500">*</span>
@@ -238,7 +222,6 @@ export default function SignUpForm() {
                   )}
                 </div>
 
-                {/* Confirm Password */}
                 <div className="space-y-2">
                   <Label htmlFor="confirmPassword" className="text-gray-700">
                     비밀번호 확인 <span className="text-red-500">*</span>
@@ -267,7 +250,6 @@ export default function SignUpForm() {
                   {errors.confirmPassword && <p className="text-red-500 text-xs mt-1">{errors.confirmPassword}</p>}
                 </div>
 
-                {/* Name */}
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-gray-700">
                     이름 <span className="text-red-500">*</span>
@@ -288,7 +270,6 @@ export default function SignUpForm() {
                   {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                 </div>
 
-                {/* Company */}
                 <div className="space-y-2">
                   <Label htmlFor="company" className="text-gray-700">
                     회사명 <span className="text-red-500">*</span>
@@ -309,7 +290,6 @@ export default function SignUpForm() {
                   {errors.company && <p className="text-red-500 text-xs mt-1">{errors.company}</p>}
                 </div>
 
-                {/* Phone */}
                 <div className="space-y-2">
                   <Label htmlFor="phone" className="text-gray-700">
                     전화번호 <span className="text-red-500">*</span>
@@ -330,7 +310,6 @@ export default function SignUpForm() {
                   {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                 </div>
 
-                {/* Agreements */}
                 <div className="space-y-3 pt-2">
                   <div className="flex items-start">
                     <Checkbox
@@ -388,7 +367,6 @@ export default function SignUpForm() {
                 </Button>
               </form>
 
-              {/* Social Login Options */}
               <div className="mt-6">
                 <div className="relative my-6">
                   <div className="absolute inset-0 flex items-center">
@@ -399,21 +377,40 @@ export default function SignUpForm() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-3">
-                  <Button variant="outline" className="py-6">
-                    <img src="/placeholder.svg?key=google-icon" alt="Google" className="h-5 w-5" />
+                <div className="space-y-3">
+                  <Button variant="outline" className="w-full py-6 bg-[#FEE500] hover:bg-[#FEE500]/90 border-[#FEE500]">
+                    <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M12 3C6.477 3 2 6.477 2 10.75C2 13.452 3.594 15.81 6.032 17.238L5.091 20.546C5.025 20.775 5.196 21 5.438 21C5.531 21 5.621 20.963 5.688 20.896L9.516 17.803C10.306 17.934 11.143 18 12 18C17.523 18 22 14.523 22 10.75C22 6.477 17.523 3 12 3Z"
+                        fill="#3C1E1E"
+                      />
+                    </svg>
+                    카카오톡으로 시작하기
                   </Button>
-                  <Button variant="outline" className="py-6">
-                    <img src="/placeholder.svg?key=apple-icon" alt="Apple" className="h-5 w-5" />
+
+                  <Button
+                    variant="outline"
+                    className="w-full py-6 bg-[#03C75A] hover:bg-[#03C75A]/90 text-white border-[#03C75A]"
+                  >
+                    <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="white">
+                      <path d="M16.273 12.845 7.376 0H0v24h7.726V11.156L16.624 24H24V0h-7.727v12.845Z" />
+                    </svg>
+                    네이버로 시작하기
                   </Button>
-                  <Button variant="outline" className="py-6">
-                    <img src="/placeholder.svg?key=kakao-icon" alt="Kakao" className="h-5 w-5" />
+
+                  <Button
+                    variant="outline"
+                    className="w-full py-6 bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] hover:opacity-90 text-white border-0"
+                  >
+                    <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="white">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.073-1.689-.073-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.057-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
+                    인스타그램으로 시작하기
                   </Button>
                 </div>
               </div>
             </div>
 
-            {/* Sign In Link */}
             <div className="px-6 py-4 bg-gray-50 text-center">
               <p className="text-sm text-gray-600">
                 이미 계정이 있으신가요?{" "}
@@ -426,29 +423,11 @@ export default function SignUpForm() {
         </div>
       </main>
 
-      {/* Footer */}
       <footer className="bg-white py-4 border-t border-gray-200">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center">
-              <img
-                src="https://crystalpng.com/wp-content/uploads/2025/05/pwc-logo.png"
-                alt="PwC Logo"
-                className="h-8 w-auto"
-              />
-              <p className="ml-4 text-sm text-gray-500">© {new Date().getFullYear()} PwC. All rights reserved.</p>
-            </div>
-            <div className="flex space-x-6">
-              <Link href="/privacy" className="text-sm text-gray-500 hover:text-gray-700">
-                개인정보 처리방침
-              </Link>
-              <Link href="/terms" className="text-sm text-gray-500 hover:text-gray-700">
-                이용약관
-              </Link>
-              <Link href="/contact" className="text-sm text-gray-500 hover:text-gray-700">
-                문의하기
-              </Link>
-            </div>
+          <div className="flex items-center justify-center">
+            <span className="text-lg font-bold text-gray-900">DealMate</span>
+            <p className="ml-4 text-sm text-gray-500">© {new Date().getFullYear()} DealMate. All rights reserved.</p>
           </div>
         </div>
       </footer>

@@ -9,14 +9,11 @@ import {
   FileSearch,
   ListFilter,
   Heart,
-  MessageSquare,
-  Bell,
-  Settings,
-  HelpCircle,
   LogOut,
   ChevronLeft,
   ChevronRight,
   Menu,
+  ShieldCheck,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useMobile } from "@/hooks/use-mobile"
@@ -33,6 +30,11 @@ export default function BuyerSidebar() {
       icon: <LayoutDashboard className="h-5 w-5" />,
     },
     {
+      title: "인증",
+      href: "/buyer/verification",
+      icon: <ShieldCheck className="h-5 w-5" />,
+    },
+    {
       title: "매수조건 등록",
       href: "/buyer/purchase-conditions",
       icon: <ListFilter className="h-5 w-5" />,
@@ -46,29 +48,6 @@ export default function BuyerSidebar() {
       title: "관심 Deals",
       href: "/buyer/favorites",
       icon: <Heart className="h-5 w-5" />,
-    },
-  ]
-
-  const secondaryNavItems = [
-    {
-      title: "메시지",
-      href: "/buyer/messages",
-      icon: <MessageSquare className="h-5 w-5" />,
-    },
-    {
-      title: "알림",
-      href: "/buyer/notifications",
-      icon: <Bell className="h-5 w-5" />,
-    },
-    {
-      title: "설정",
-      href: "/buyer/settings",
-      icon: <Settings className="h-5 w-5" />,
-    },
-    {
-      title: "도움말",
-      href: "/buyer/help",
-      icon: <HelpCircle className="h-5 w-5" />,
     },
   ]
 
@@ -108,17 +87,13 @@ export default function BuyerSidebar() {
     >
       <div className="p-4 border-b border-gray-200 flex items-center justify-between h-[68px]">
         <Link href="/" className={cn("flex items-center", collapsed && "justify-center")}>
-          <img
-            src="https://crystalpng.com/wp-content/uploads/2025/05/pwc-logo.png"
-            alt="PwC Logo"
-            className="h-8 w-auto"
-          />
           {!collapsed && (
-            <div className="ml-2 flex flex-col">
-              <span className="text-sm font-bold text-gray-900">M&A Platform</span>
-              <span className="text-xs text-gray-500">투자자 구매자</span>
+            <div className="flex flex-col">
+              <span className="text-lg font-bold text-gray-900">DealMate</span>
+              <span className="text-xs text-gray-500">매수자</span>
             </div>
           )}
+          {collapsed && <span className="text-lg font-bold text-gray-900">DM</span>}
         </Link>
         <Button
           variant="ghost"
@@ -134,29 +109,6 @@ export default function BuyerSidebar() {
       <div className="flex-1 overflow-y-auto py-4 h-[calc(100vh-136px)]">
         <nav className="space-y-1 px-2">
           {mainNavItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors",
-                pathname === item.href
-                  ? "bg-[#F4511E]/10 text-[#F4511E]"
-                  : "text-gray-700 hover:bg-gray-100 hover:text-gray-900",
-                collapsed && "justify-center",
-              )}
-            >
-              {item.icon}
-              {!collapsed && <span className="ml-3">{item.title}</span>}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="mt-6 px-3">
-          <div className={cn("border-t border-gray-200 pt-4", collapsed && "mx-2")}></div>
-        </div>
-
-        <nav className="mt-2 space-y-1 px-2">
-          {secondaryNavItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}

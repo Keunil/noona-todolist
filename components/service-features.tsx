@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Shield, Bell, BarChart4, ListFilter, UserCheck, Award, Briefcase } from "lucide-react"
+import { Shield, BarChart4, UserCheck, Award, Briefcase } from "lucide-react"
 
 export default function ServiceFeatures() {
   const fadeIn = {
@@ -50,16 +50,6 @@ export default function ServiceFeatures() {
       description: "매물의 민감도에 따라 비공개/제한 공개/공개를 선택하여 정보 유출 위험을 최소화합니다",
       icon: <Shield className="h-6 w-6 text-[#F4511E]" />,
     },
-    {
-      title: "전문가 후보군 추천",
-      description: "거래 단계별로 필요한 법률, 회계, 세무 전문가를 AI 기반으로 매칭하여 추천합니다",
-      icon: <BarChart4 className="h-6 w-6 text-[#F4511E]" />,
-    },
-    {
-      title: "보안 기반 협업 시스템",
-      description: "블록체인 기반 문서 관리와 암호화된 통신으로 안전한 거래 환경을 제공합니다",
-      icon: <Bell className="h-6 w-6 text-[#F4511E]" />,
-    },
   ]
 
   const investorFeatures = [
@@ -73,19 +63,9 @@ export default function ServiceFeatures() {
       description: "매도자가 제공하는 VDD 리포트를 전문가가 검증하여 투자 리스크를 사전에 파악합니다",
       icon: <Award className="h-6 w-6 text-[#F4511E]" />,
     },
-    {
-      title: "전문가 후보군 추천",
-      description: "Due Diligence부터 계약까지 필요한 전문가를 단계별로 추천받을 수 있습니다",
-      icon: <ListFilter className="h-6 w-6 text-[#F4511E]" />,
-    },
   ]
 
   const expertFeatures = [
-    {
-      title: "전문가 인증 프로필 운영",
-      description: "전문 분야, 경력, 실적을 인증하여 신뢰도 높은 프로필을 구축하고 관리합니다",
-      icon: <Award className="h-6 w-6 text-[#F4511E]" />,
-    },
     {
       title: "플랫폼 기반 추천 연계",
       description: "AI 매칭 시스템을 통해 전문성에 맞는 프로젝트를 자동으로 추천받습니다",
@@ -95,11 +75,6 @@ export default function ServiceFeatures() {
       title: "RFP 기반 협업 시스템",
       description: "체계적인 제안 요청서(RFP) 프로세스로 효율적인 프로젝트 수주가 가능합니다",
       icon: <Briefcase className="h-6 w-6 text-[#F4511E]" />,
-    },
-    {
-      title: "업무품질감리 및 등급 유지",
-      description: "고객 평가와 품질 감리를 통해 전문가 등급을 유지하고 신뢰도를 높입니다",
-      icon: <Shield className="h-6 w-6 text-[#F4511E]" />,
     },
   ]
 
@@ -136,7 +111,7 @@ export default function ServiceFeatures() {
               value="expert"
               className="text-lg py-4 rounded-none border-b-2 border-transparent data-[state=active]:border-[#F4511E] data-[state=active]:text-black data-[state=active]:bg-transparent relative overflow-hidden group"
             >
-              <span>전문가를 위한 기능</span>
+              <span>자문사를 위한 기능</span>
               <motion.div
                 className="absolute bottom-0 left-0 h-0.5 w-full bg-[#F4511E]/20"
                 initial={{ scaleX: 0 }}
@@ -183,7 +158,7 @@ export default function ServiceFeatures() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 gap-8"
             >
               {investorFeatures.map((feature, index) => (
                 <motion.div

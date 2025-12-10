@@ -67,21 +67,9 @@ export default function Navbar() {
       <div className="max-w-screen-xl mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
-            <img
-              src="https://crystalpng.com/wp-content/uploads/2025/05/pwc-logo.png"
-              alt="DealMate Logo"
-              className="h-14 w-auto"
-            />
-            <div
-              className={cn(
-                "ml-4 border-l pl-4 flex flex-col justify-center",
-                shouldBeDark ? "border-gray-300" : "border-white/30",
-              )}
-            >
-              <span className={cn("text-xl font-bold", shouldBeDark ? "text-gray-900" : "text-white")}>
-                M&A Platform
-              </span>
-              <span className={cn("text-xs", shouldBeDark ? "text-gray-500" : "text-white/70")}>DealMate</span>
+            <div className="flex flex-col justify-center">
+              <span className={cn("text-2xl font-bold", shouldBeDark ? "text-gray-900" : "text-white")}>DealMate</span>
+              <span className={cn("text-xs", shouldBeDark ? "text-gray-500" : "text-white/70")}>M&A Platform</span>
             </div>
           </Link>
 

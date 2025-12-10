@@ -1,53 +1,12 @@
+"use client"
+
 import { Eye, MessageSquare, Clock, MoreHorizontal, Plus } from "lucide-react"
 import Link from "next/link"
-
-// 샘플 기업 데이터
-const companies = [
-  {
-    id: "1",
-    name: "테크솔루션 주식회사",
-    industry: "IT/소프트웨어",
-    price: "50억 원",
-    revenue: "20억 원",
-    employees: "45명",
-    location: "서울 강남",
-    status: "active",
-    views: 245,
-    inquiries: 12,
-    createdAt: "2023-05-15",
-    thumbnail: "/tech-company-office.png",
-  },
-  {
-    id: "2",
-    name: "스마트팩토리 시스템즈",
-    industry: "제조업",
-    price: "80억 원",
-    revenue: "35억 원",
-    employees: "78명",
-    location: "경기도 성남시",
-    status: "active",
-    views: 187,
-    inquiries: 8,
-    createdAt: "2023-06-02",
-    thumbnail: "/manufacturing-facility.png",
-  },
-  {
-    id: "3",
-    name: "바이오헬스 이노베이션",
-    industry: "바이오/헬스케어",
-    price: "120억 원",
-    revenue: "40억 원",
-    employees: "32명",
-    location: "대전 유성구",
-    status: "pending",
-    views: 92,
-    inquiries: 3,
-    createdAt: "2023-06-10",
-    thumbnail: "/biotech-lab.png",
-  },
-]
+import { useListings } from "@/lib/listings-store"
 
 export default function ListingsPage() {
+  const { listings } = useListings()
+
   return (
     <div className="p-6 text-center">
       <div className="flex justify-between items-center mb-6 flex-col sm:flex-row">
@@ -64,14 +23,10 @@ export default function ListingsPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {companies.map((company) => (
+        {listings.map((company) => (
           <div key={company.id} className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
-            <div className="relative h-48 bg-gray-100">
-              <img
-                src={company.thumbnail || "/placeholder.svg"}
-                alt={company.name}
-                className="w-full h-full object-cover"
-              />
+            <div className="relative h-48 bg-gray-200 flex items-center justify-center">
+              <span className="text-gray-500">사진</span>
               <div className="absolute top-2 right-2">
                 <span
                   className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${

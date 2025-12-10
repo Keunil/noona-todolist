@@ -42,14 +42,9 @@ export default function SignInForm() {
         <div className="container mx-auto px-6">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <img
-                src="https://crystalpng.com/wp-content/uploads/2025/05/pwc-logo.png"
-                alt="PwC Logo"
-                className="h-12 w-auto"
-              />
-              <div className="ml-4 border-l pl-4 flex flex-col justify-center border-gray-300">
-                <span className="text-xl font-bold text-gray-900">M&A Platform</span>
-                <span className="text-xs text-gray-500">삼일회계법인</span>
+              <div className="flex flex-col justify-center">
+                <span className="text-2xl font-bold text-gray-900">DealMate</span>
+                <span className="text-xs text-gray-500">M&A Platform</span>
               </div>
             </Link>
           </div>
@@ -157,19 +152,28 @@ export default function SignInForm() {
                     <div className="w-full border-t border-gray-200"></div>
                   </div>
                   <div className="relative flex justify-center text-sm">
-                    <span className="px-2 bg-white text-gray-500">또는</span>
+                    <span className="px-2 bg-white text-gray-500">간편 로그인</span>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-3 gap-3">
-                  <Button variant="outline" className="py-6">
-                    <img src="/placeholder.svg?key=google-icon" alt="Google" className="h-5 w-5" />
+                  <Button type="button" className="py-6 bg-[#FEE500] hover:bg-[#FDD835] text-[#3C1E1E]">
+                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.9 5.3 4.8 6.7L6 22l4.4-2.6c.5.1 1 .1 1.6.1 5.5 0 10-3.6 10-8S17.5 3 12 3z" />
+                    </svg>
                   </Button>
-                  <Button variant="outline" className="py-6">
-                    <img src="/placeholder.svg?key=apple-icon" alt="Apple" className="h-5 w-5" />
+                  <Button type="button" className="py-6 bg-[#03C75A] hover:bg-[#02B350] text-white">
+                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M16.273 12.845 7.376 0H0v24h7.726V11.156L16.624 24H24V0h-7.727v12.845z" />
+                    </svg>
                   </Button>
-                  <Button variant="outline" className="py-6">
-                    <img src="/placeholder.svg?key=kakao-icon" alt="Kakao" className="h-5 w-5" />
+                  <Button
+                    type="button"
+                    className="py-6 bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] hover:opacity-90 text-white"
+                  >
+                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+                    </svg>
                   </Button>
                 </div>
               </div>
@@ -209,26 +213,9 @@ export default function SignInForm() {
       {/* Footer */}
       <footer className="bg-white py-4 border-t border-gray-200">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center">
-              <img
-                src="https://crystalpng.com/wp-content/uploads/2025/05/pwc-logo.png"
-                alt="PwC Logo"
-                className="h-8 w-auto"
-              />
-              <p className="ml-4 text-sm text-gray-500">© {new Date().getFullYear()} PwC. All rights reserved.</p>
-            </div>
-            <div className="flex space-x-6">
-              <Link href="/privacy" className="text-sm text-gray-500 hover:text-gray-700">
-                개인정보 처리방침
-              </Link>
-              <Link href="/terms" className="text-sm text-gray-500 hover:text-gray-700">
-                이용약관
-              </Link>
-              <Link href="/contact" className="text-sm text-gray-500 hover:text-gray-700">
-                문의하기
-              </Link>
-            </div>
+          <div className="flex items-center justify-center">
+            <span className="text-lg font-bold text-gray-900">DealMate</span>
+            <p className="ml-4 text-sm text-gray-500">© {new Date().getFullYear()} DealMate. All rights reserved.</p>
           </div>
         </div>
       </footer>

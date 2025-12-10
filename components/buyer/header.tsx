@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Bell, MessageSquare, Search, User } from "lucide-react"
+import { Search, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -33,14 +33,6 @@ export default function BuyerHeader() {
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="icon" className="text-gray-700 relative">
-            <Bell className="h-5 w-5" />
-            <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-red-500"></span>
-          </Button>
-          <Button variant="ghost" size="icon" className="text-gray-700 relative">
-            <MessageSquare className="h-5 w-5" />
-            <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-red-500"></span>
-          </Button>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" className="rounded-full h-8 w-8 bg-gray-100 text-gray-700 relative">

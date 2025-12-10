@@ -16,7 +16,7 @@ export default function Differentiation() {
     {
       title: "국내 최대 규모의 M&A 자문 실적",
       description:
-        "삼일회계법인은 국내 최대 규모의 M&A 자문 실적을 보유하고 있으며, 이러한 경험과 노하우를 바탕으로 최적의 딜 매칭을 제공합니다.",
+        "DealMate는 국내 최대 규모의 M&A 자문 실적을 보유하고 있으며, 이러한 경험과 노하우를 바탕으로 최적의 딜 매칭을 제공합니다.",
       icon: <Trophy className="h-6 w-6 text-[#F4511E]" />,
       stats: "500+ 성공적인 M&A 거래",
     },
@@ -93,7 +93,7 @@ export default function Differentiation() {
           variants={fadeIn}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">삼일회계법인의 딜 서비스 차별화 포인트</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">DealMate의 딜 서비스 차별화 포인트</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             빅4 중 M&A 자문 연계 서비스에서 가장 빠르고 정확하게 움직입니다.
           </p>
@@ -110,15 +110,13 @@ export default function Differentiation() {
           >
             <img
               src="/placeholder.svg?key=u8m71"
-              alt="Modern office building representing PwC's global presence"
+              alt="Modern office building representing DealMate's global presence"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
             <div className="absolute bottom-0 left-0 p-8 text-white">
               <p className="text-2xl font-bold mb-2">글로벌 네트워크</p>
-              <p className="text-base mb-4">
-                전 세계 157개국 284,000명의 PwC 전문가 네트워크를 통한 글로벌 수준의 M&A 서비스
-              </p>
+              <p className="text-base mb-4">전 세계 네트워크를 통한 글로벌 수준의 M&A 서비스</p>
               <div className="flex items-center text-[#F4511E] font-medium">
                 <span>글로벌 성공 사례 보기</span>
                 <ArrowRight className="h-4 w-4 ml-2" />
@@ -172,10 +170,10 @@ export default function Differentiation() {
               className="mt-8 p-4 border-l-4 border-[#F4511E] bg-[#F4511E]/5"
             >
               <p className="text-gray-700 italic">
-                "삼일회계법인의 M&A 플랫폼은 단순한 매칭을 넘어 거래의 전 과정을 함께하는 파트너입니다. 우리의 전문성과
+                "DealMate의 M&A 플랫폼은 단순한 매칭을 넘어 거래의 전 과정을 함께하는 파트너입니다. 우리의 전문성과
                 글로벌 네트워크가 여러분의 성공적인 딜을 보장합니다."
               </p>
-              <p className="text-sm font-bold text-gray-900 mt-2">- 삼일회계법인 M&A 플랫폼팀</p>
+              <p className="text-sm font-bold text-gray-900 mt-2">- DealMate M&A 플랫폼팀</p>
             </motion.div>
           </motion.div>
         </div>

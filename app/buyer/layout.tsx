@@ -9,7 +9,7 @@ export default function BuyerLayout({ children }: { children: React.ReactNode })
         <BuyerSidebar />
         <div className="flex-1 flex flex-col overflow-hidden">
           <BuyerHeader />
-          <main className="flex-1 overflow-y-auto h-[calc(100vh-68px)] p-6 flex items-center justify-center">{children}</main>
+          <main className="flex-1 overflow-y-auto h-[calc(100vh-68px)] p-6">{children}</main>
         </div>
       </div>
     </div>

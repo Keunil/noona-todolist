@@ -16,14 +16,14 @@ export default function Testimonials() {
     {
       id: 1,
       content:
-        "3개월 만에 원하던 매물을 찾고 딜을 성사시켰어요. DealMate의 전문가들이 모든 과정을 함께해 주셔서 안심하고 진행할 수 있었습니다.",
+        "3개월 만에 원하던 매물을 찾고 딜을 성사시켰어요. DealMate의 자문사들이 모든 과정을 함께해 주셔서 안심하고 진행할 수 있었습니다.",
       name: "전략적 투자자 A사 CFO",
       company: "제조업 대기업",
       industry: "제조",
       dealSize: "1,200억 원",
       rating: 5,
-      image: "/placeholder.svg?key=u8m72",
-      logo: "/placeholder.svg?key=u8m73",
+      image: "/images/testimonial-cfo.jpg",
+      logo: "/images/company-logo-manufacturing.jpg",
     },
     {
       id: 2,
@@ -34,20 +34,20 @@ export default function Testimonials() {
       industry: "IT 서비스",
       dealSize: "350억 원",
       rating: 5,
-      image: "/placeholder.svg?key=u8m74",
-      logo: "/placeholder.svg?key=u8m75",
+      image: "/images/testimonial-ceo.jpg",
+      logo: "/images/company-logo-it.jpg",
     },
     {
       id: 3,
       content:
-        "투자 대상 기업의 실사 과정에서 발견하기 어려운 잠재적 리스크를 미리 파악할 수 있었습니다. 전문가의 조언이 없었다면 큰 문제가 될 뻔했습니다.",
+        "투자 대상 기업의 실사 과정에서 발견하기 어려운 잠재적 리스크를 미리 파악할 수 있었습니다. 자문사의 조언이 없었다면 큰 문제가 될 뻔했습니다.",
       name: "벤처캐피탈 C사 대표",
       company: "투자 전문 기업",
       industry: "금융 투자",
       dealSize: "500억 원",
       rating: 5,
-      image: "/placeholder.svg?key=u8m76",
-      logo: "/placeholder.svg?key=u8m77",
+      image: "/images/testimonial-vc.jpg",
+      logo: "/images/company-logo-investment.jpg",
     },
   ]
 

@@ -29,12 +29,15 @@ import {
   SheetFooter,
   SheetClose,
 } from "@/components/ui/sheet"
+import { useFavorites } from "@/lib/favorites-store"
 
 export default function DealsPage() {
   const [activeTab, setActiveTab] = useState("all")
   const [sortOption, setSortOption] = useState("match")
   const [searchQuery, setSearchQuery] = useState("")
   const [activeFilters, setActiveFilters] = useState([])
+
+  const { favorites, toggleFavorite, isFavorite } = useFavorites()
 
   // Mock data for deals
   const deals = [
@@ -50,9 +53,8 @@ export default function DealsPage() {
       description:
         "클라우드 기반 보안 솔루션을 제공하는 성장 중인 IT 기업입니다. 최근 3년간 연평균 성장률 35%를 기록하고 있으며, 안정적인 구독형 수익 모델을 갖추고 있습니다.",
       postedDate: "2023-05-15",
-      isFavorite: true,
-      status: "hot" as const,
       matchScore: 95,
+      verified: true, // matches "IT 서비스 기업" condition
     },
     {
       id: "2",
@@ -66,9 +68,8 @@ export default function DealsPage() {
       description:
         "스마트 팩토리 자동화 설비를 설계 및 제조하는 기업입니다. 국내 주요 대기업과의 안정적인 거래처를 확보하고 있으며, 특허 기술 다수 보유하고 있습니다.",
       postedDate: "2023-05-20",
-      isFavorite: false,
-      status: "new" as const,
       matchScore: 87,
+      verified: false,
     },
     {
       id: "3",
@@ -82,9 +83,8 @@ export default function DealsPage() {
       description:
         "혁신적인 의료기기를 개발하는 바이오헬스케어 스타트업입니다. FDA 및 식약처 인증을 완료했으며, 해외 시장 진출을 준비 중입니다.",
       postedDate: "2023-05-25",
-      isFavorite: true,
-      status: "exclusive" as const,
       matchScore: 82,
+      verified: true, // matches "바이오/헬스케어" condition
     },
     {
       id: "4",
@@ -98,9 +98,8 @@ export default function DealsPage() {
       description:
         "K-12 대상 온라인 교육 콘텐츠 및 플랫폼을 제공하는 에듀테크 기업입니다. 월간 활성 사용자 5만명을 보유하고 있으며, 구독형 비즈니스 모델로 안정적인 수익을 창출하고 있습니다.",
       postedDate: "2023-06-01",
-      isFavorite: false,
-      status: "closing" as const,
       matchScore: 78,
+      verified: false,
     },
     {
       id: "5",
@@ -114,9 +113,8 @@ export default function DealsPage() {
       description:
         "친환경 식품 제조 및 유통 기업입니다. 유기농 인증을 받은 제품 라인업을 보유하고 있으며, 대형 마트 및 온라인 채널을 통해 안정적인 매출을 올리고 있습니다.",
       postedDate: "2023-06-05",
-      isFavorite: false,
-      status: "new" as const,
       matchScore: 72,
+      verified: false,
     },
     {
       id: "6",
@@ -130,9 +128,8 @@ export default function DealsPage() {
       description:
         "물류 자동화 및 최적화 솔루션을 제공하는 기업입니다. 자체 개발한 WMS(창고관리시스템)과 TMS(운송관리시스템)를 보유하고 있으며, 대기업 및 중견기업을 주요 고객으로 확보하고 있습니다.",
       postedDate: "2023-06-10",
-      isFavorite: false,
-      status: "new" as const,
       matchScore: 68,
+      verified: false,
     },
   ]
 
@@ -164,7 +161,7 @@ export default function DealsPage() {
   ]
 
   const handleFavoriteToggle = (id: string) => {
-    console.log(`Toggle favorite for deal ${id}`)
+    toggleFavorite(id)
   }
 
   const handleViewDetails = (id: string) => {
@@ -189,9 +186,7 @@ export default function DealsPage() {
   // Filter deals based on active filters and search query
   const filteredDeals = deals.filter((deal) => {
     // Filter by tab
-    if (activeTab === "favorites" && !deal.isFavorite) return false
-    if (activeTab === "new" && deal.status !== "new") return false
-    if (activeTab === "hot" && deal.status !== "hot") return false
+    if (activeTab === "favorites" && !isFavorite(deal.id)) return false
 
     // Filter by search query
     if (
@@ -207,7 +202,6 @@ export default function DealsPage() {
     for (const filter of activeFilters) {
       if (filter.type === "industry" && deal.industry !== filter.value) return false
       if (filter.type === "location" && deal.location !== filter.value) return false
-      // Add more filter types as needed
     }
 
     return true
@@ -215,6 +209,10 @@ export default function DealsPage() {
 
   // Sort deals based on sort option
   const sortedDeals = [...filteredDeals].sort((a, b) => {
+    if (a.verified && !b.verified) return -1
+    if (!a.verified && b.verified) return 1
+
+    // Then apply the selected sort option
     if (sortOption === "match") return (b.matchScore || 0) - (a.matchScore || 0)
     if (sortOption === "recent") return new Date(b.postedDate).getTime() - new Date(a.postedDate).getTime()
     if (sortOption === "price-high") return Number.parseInt(b.price) - Number.parseInt(a.price)
@@ -239,8 +237,6 @@ export default function DealsPage() {
           <TabsList className="mx-auto">
             <TabsTrigger value="all">전체 매물</TabsTrigger>
             <TabsTrigger value="favorites">관심 매물</TabsTrigger>
-            <TabsTrigger value="new">신규 매물</TabsTrigger>
-            <TabsTrigger value="hot">인기 매물</TabsTrigger>
           </TabsList>
         </Tabs>
 
@@ -277,7 +273,7 @@ export default function DealsPage() {
 
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="outline" className="gap-2">
+                <Button variant="outline" className="gap-2 bg-transparent">
                   <Filter className="h-4 w-4" />
                   필터
                   {activeFilters.length > 0 && <Badge className="ml-1 bg-gray-500">{activeFilters.length}</Badge>}
@@ -426,7 +422,7 @@ export default function DealsPage() {
         {sortedDeals.map((deal) => (
           <DealCard
             key={deal.id}
-            deal={deal}
+            deal={{ ...deal, isFavorite: isFavorite(deal.id) }}
             onFavoriteToggle={handleFavoriteToggle}
             onViewDetails={handleViewDetails}
           />
@@ -438,7 +434,7 @@ export default function DealsPage() {
           <SlidersHorizontal className="h-12 w-12 text-gray-300 mx-auto mb-4" />
           <h3 className="text-lg font-medium text-gray-900 mb-2">검색 결과가 없습니다</h3>
           <p className="text-gray-500">다른 검색어나 필터 조건을 사용해 보세요.</p>
-          <Button variant="outline" className="mt-4" onClick={handleClearFilters}>
+          <Button variant="outline" className="mt-4 bg-transparent" onClick={handleClearFilters}>
             필터 초기화
           </Button>
         </div>

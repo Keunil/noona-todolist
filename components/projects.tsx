@@ -24,7 +24,7 @@ export default function Projects() {
       shortDescription: "A full-featured e-commerce platform with product management.",
       description:
         "A full-featured e-commerce platform with product management, cart functionality, and payment processing.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/images/project-ecommerce.jpg",
       tags: ["C++", "Qt", "SQLite", "CMake"],
       features: [
         "Inventory management system",
@@ -43,7 +43,7 @@ export default function Projects() {
       title: "Task Management System",
       shortDescription: "A collaborative task management application with real-time updates.",
       description: "A collaborative task management application with real-time updates and team workspaces.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/images/project-task.jpg",
       tags: ["Java", "Spring Boot", "React", "PostgreSQL"],
       features: [
         "Real-time collaboration",
@@ -62,7 +62,7 @@ export default function Projects() {
       title: "System Resource Monitor",
       shortDescription: "A comprehensive system monitoring tool with real-time analytics.",
       description: "A comprehensive system monitoring tool with real-time analytics and performance tracking.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/images/project-monitor.jpg",
       tags: ["C++", "Python", "Qt", "Linux"],
       features: [
         "CPU/Memory monitoring",
@@ -81,7 +81,7 @@ export default function Projects() {
       title: "Compiler Design Project",
       shortDescription: "A custom programming language compiler with optimization features.",
       description: "A custom programming language compiler with advanced optimization features.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/images/project-compiler.jpg",
       tags: ["C", "LLVM", "Assembly", "Python"],
       features: ["Lexical analysis", "Syntax parsing", "Code optimization", "Error handling", "Assembly generation"],
       demoLink: "#",
@@ -94,7 +94,7 @@ export default function Projects() {
       title: "Distributed Database System",
       shortDescription: "A distributed database system with high availability.",
       description: "A distributed database system with high availability and fault tolerance.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/images/project-database.jpg",
       tags: ["C++", "Rust", "gRPC", "Redis"],
       features: ["Data replication", "Sharding", "Fault tolerance", "Load balancing", "Transaction management"],
       demoLink: "#",
@@ -107,7 +107,7 @@ export default function Projects() {
       title: "Neural Network Framework",
       shortDescription: "A deep learning framework optimized for performance.",
       description: "A deep learning framework with CUDA acceleration and optimization features.",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/images/project-neural.jpg",
       tags: ["C++", "CUDA", "Python", "CMake"],
       features: [
         "CUDA acceleration",

@@ -133,7 +133,7 @@ export default function InquiryForm() {
 
           <div className="space-y-2">
             <Label htmlFor="source" className="text-gray-700">
-              PwC M&A 플랫폼을 어떻게 알게 되었나요?
+              DealMate M&A 플랫폼을 어떻게 알게 되었나요?
             </Label>
             <Select value={formData.source} onValueChange={handleSelectChange} required>
               <SelectTrigger id="source" className="border-gray-300">

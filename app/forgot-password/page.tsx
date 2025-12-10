@@ -3,8 +3,8 @@ import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "비밀번호 찾기 | PwC Korea M&A Platform",
-  description: "PwC Korea M&A Platform 비밀번호 재설정",
+  title: "비밀번호 찾기 | DealMate M&A Platform",
+  description: "DealMate M&A Platform 비밀번호 재설정",
 }
 
 export default function ForgotPasswordPage() {
