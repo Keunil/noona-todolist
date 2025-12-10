@@ -24,6 +24,7 @@ export default function DashboardPage() {
       price: "50억 원",
       revenue: "20억 원",
       employees: "25명",
+      image: "/modern-tech-office-with-computers.jpg",
       description:
         "클라우드 기반 보안 솔루션을 제공하는 성장 중인 IT 기업입니다. 최근 3년간 연평균 성장률 35%를 기록하고 있으며, 안정적인 구독형 수익 모델을 갖추고 있습니다.",
       postedDate: "2023-05-15",
@@ -41,6 +42,7 @@ export default function DashboardPage() {
       price: "80억 원",
       revenue: "35억 원",
       employees: "42명",
+      image: "/automated-factory-production-line.jpg",
       description:
         "스마트 팩토리 자동화 설비를 설계 및 제조하는 기업입니다. 국내 주요 대기업과의 안정적인 거래처를 확보하고 있으며, 특허 기술 다수 보유하고 있습니다.",
       postedDate: "2023-05-20",
@@ -58,6 +60,7 @@ export default function DashboardPage() {
       price: "30억 원",
       revenue: "12억 원",
       employees: "18명",
+      image: "/medical-laboratory.png",
       description:
         "혁신적인 의료기기를 개발하는 바이오헬스케어 스타트업입니다. FDA 및 식약처 인증을 완료했으며, 해외 시장 진출을 준비 중입니다.",
       postedDate: "2023-05-25",
@@ -75,6 +78,7 @@ export default function DashboardPage() {
       price: "25억 원",
       revenue: "8억 원",
       employees: "15명",
+      image: "/students-learning-online-on-laptop.jpg",
       description:
         "K-12 대상 온라인 교육 콘텐츠 및 플랫폼을 제공하는 에듀테크 기업입니다. 월간 활성 사용자 5만명을 보유하고 있으며, 구독형 비즈니스 모델로 안정적인 수익을 창출하고 있습니다.",
       postedDate: "2023-06-01",

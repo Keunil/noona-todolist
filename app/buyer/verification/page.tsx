@@ -13,7 +13,7 @@ type VerificationStatus = "none" | "pending" | "approved" | "rejected"
 
 export default function BuyerVerificationPage() {
   const [status, setStatus] = useState<VerificationStatus>("none")
-  const [uploadedFiles, setUploadedFiles] = useState<{ name: string; size: string }[]>([])
+  const [uploadedFiles, setUploadedFiles] = useState<{ name: string; size: string; type: string }[]>([])
   const [isDragging, setIsDragging] = useState(false)
 
   const handleDragOver = (e: React.DragEvent) => {
@@ -30,14 +30,21 @@ export default function BuyerVerificationPage() {
     setIsDragging(false)
     const files = Array.from(e.dataTransfer.files)
     files.forEach((file) => {
-      setUploadedFiles((prev) => [...prev, { name: file.name, size: `${(file.size / 1024 / 1024).toFixed(2)} MB` }])
+      const fileType = file.name.includes("사업계획서") || file.name.includes("business plan") ? "business" : "proof"
+      setUploadedFiles((prev) => [
+        ...prev,
+        { name: file.name, size: `${(file.size / 1024 / 1024).toFixed(2)} MB`, type: fileType },
+      ])
     })
   }
 
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>, type: string) => {
     const files = Array.from(e.target.files || [])
     files.forEach((file) => {
-      setUploadedFiles((prev) => [...prev, { name: file.name, size: `${(file.size / 1024 / 1024).toFixed(2)} MB` }])
+      setUploadedFiles((prev) => [
+        ...prev,
+        { name: file.name, size: `${(file.size / 1024 / 1024).toFixed(2)} MB`, type },
+      ])
     })
   }
 
@@ -89,6 +96,7 @@ export default function BuyerVerificationPage() {
   }
 
   const statusConfig = getStatusConfig()
+  const hasBusinessPlan = uploadedFiles.some((f) => f.type === "business")
 
   return (
     <div className="flex-1 overflow-y-auto p-8">
@@ -162,6 +170,45 @@ export default function BuyerVerificationPage() {
             {status !== "approved" && (
               <div className="space-y-4">
                 <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">사업계획서 업로드 (선택)</h3>
+                  <p className="text-sm text-gray-600 mb-4">
+                    사업계획서를 업로드하시면 AI가 매수자의 계획을 고려하여 더 정확한 기업 분석을 제공합니다.
+                  </p>
+
+                  <div
+                    onDragOver={handleDragOver}
+                    onDragLeave={handleDragLeave}
+                    onDrop={handleDrop}
+                    className={cn(
+                      "border-2 border-dashed rounded-lg p-8 text-center transition-colors mb-4",
+                      isDragging ? "border-purple-500 bg-purple-50" : "border-gray-300 bg-gray-50",
+                    )}
+                  >
+                    <Upload className="h-10 w-10 text-gray-400 mx-auto mb-3" />
+                    <p className="text-md font-medium text-gray-700 mb-2">사업계획서 파일을 드래그하여 업로드</p>
+                    <p className="text-sm text-gray-500 mb-3">또는</p>
+                    <label htmlFor="business-plan-upload">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        onClick={() => document.getElementById("business-plan-upload")?.click()}
+                      >
+                        파일 선택
+                      </Button>
+                    </label>
+                    <input
+                      id="business-plan-upload"
+                      type="file"
+                      multiple
+                      className="hidden"
+                      onChange={(e) => handleFileSelect(e, "business")}
+                      accept=".pdf,.doc,.docx,.ppt,.pptx"
+                    />
+                    <p className="text-xs text-gray-500 mt-3">PDF, DOC, PPT 파일 지원 (최대 20MB)</p>
+                  </div>
+                </div>
+
+                <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">자금 증빙 서류 업로드</h3>
                   <p className="text-sm text-gray-600 mb-4">다음 서류 중 하나를 업로드해주세요:</p>
                   <ul className="text-sm text-gray-700 space-y-1 mb-6">
@@ -215,7 +262,7 @@ export default function BuyerVerificationPage() {
                     type="file"
                     multiple
                     className="hidden"
-                    onChange={handleFileSelect}
+                    onChange={(e) => handleFileSelect(e, "proof")}
                     accept=".pdf,.jpg,.jpeg,.png"
                   />
                   <p className="text-xs text-gray-500 mt-4">PDF, JPG, PNG 파일 지원 (최대 10MB)</p>
@@ -228,9 +275,16 @@ export default function BuyerVerificationPage() {
                     {uploadedFiles.map((file, index) => (
                       <div key={index} className="flex items-center justify-between p-3 bg-white border rounded-lg">
                         <div className="flex items-center gap-3">
-                          <FileText className="h-5 w-5 text-[#F4511E]" />
+                          <FileText
+                            className={cn("h-5 w-5", file.type === "business" ? "text-purple-600" : "text-[#F4511E]")}
+                          />
                           <div>
-                            <p className="text-sm font-medium text-gray-900">{file.name}</p>
+                            <div className="flex items-center gap-2">
+                              <p className="text-sm font-medium text-gray-900">{file.name}</p>
+                              {file.type === "business" && (
+                                <Badge className="bg-purple-100 text-purple-800 text-xs">사업계획서</Badge>
+                              )}
+                            </div>
                             <p className="text-xs text-gray-500">{file.size}</p>
                           </div>
                         </div>
@@ -269,6 +323,9 @@ export default function BuyerVerificationPage() {
                 <p className="text-sm text-gray-600 mt-4">
                   인증이 완료되었습니다. 이제 프리미엄 딜에 접근할 수 있습니다.
                 </p>
+                {hasBusinessPlan && (
+                  <p className="text-sm text-purple-600 mt-2">사업계획서가 등록되어 AI 분석에 활용됩니다.</p>
+                )}
               </div>
             )}
           </CardContent>

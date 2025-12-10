@@ -102,15 +102,45 @@ export default function ExpertDashboardPage() {
 
   // 인증 프로필 정보
   const certifications = [
-    { name: "공인회계사 (CPA)", issuer: "한국공인회계사회", year: "2015" },
-    { name: "재무위험관리사 (FRM)", issuer: "GARP", year: "2017" },
-    { name: "M&A 자문사", issuer: "한국M&A협회", year: "2018" },
+    {
+      name: "공인회계사 (CPA)",
+      issuer: "한국공인회계사회",
+      year: "2015",
+      image: "/cpa-certification-badge.jpg",
+    },
+    {
+      name: "재무위험관리사 (FRM)",
+      issuer: "GARP",
+      year: "2017",
+      image: "/frm-certification-badge.jpg",
+    },
+    {
+      name: "M&A 자문사",
+      issuer: "한국M&A협회",
+      year: "2018",
+      image: "/ma-advisor-certificate.jpg",
+    },
   ]
 
   const experience = [
-    { company: "DealMate", position: "M&A 자문 파트너", period: "2020 - 현재" },
-    { company: "삼성증권", position: "기업금융부 상무", period: "2015 - 2020" },
-    { company: "딜로이트", position: "재무자문 시니어", period: "2010 - 2015" },
+    {
+      company: "DealMate",
+      position: "M&A 자문 파트너",
+      period: "2020 - 현재",
+      logo: "/dealmate-logo.jpg",
+    },
+    {
+      company: "삼성증권",
+      position: "기업금융부 상무",
+      period: "2015 - 2020",
+      logo: "/samsung-securities-logo.jpg",
+    },
+    {
+      company: "딜로이트",
+      position: "재무자문 시니어",
+      period: "2010 - 2015",
+      logo: "/deloitte-logo.png",
+    },
   ]
 
   return (
@@ -161,7 +191,13 @@ export default function ExpertDashboardPage() {
               <CardContent className="space-y-4">
                 {certifications.map((cert, index) => (
                   <div key={index} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
-                    <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5" />
+                    <div className="h-12 w-12 rounded-lg overflow-hidden flex-shrink-0 bg-white border border-gray-200">
+                      <img
+                        src={cert.image || "/placeholder.svg"}
+                        alt={cert.name}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
                     <div>
                       <p className="font-medium text-gray-900">{cert.name}</p>
                       <p className="text-sm text-gray-500">
@@ -186,8 +222,12 @@ export default function ExpertDashboardPage() {
               <CardContent className="space-y-4">
                 {experience.map((exp, index) => (
                   <div key={index} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
-                    <div className="h-10 w-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Briefcase className="h-5 w-5 text-blue-600" />
+                    <div className="h-10 w-10 bg-white border border-gray-200 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
+                      <img
+                        src={exp.logo || "/placeholder.svg"}
+                        alt={exp.company}
+                        className="h-full w-full object-contain p-1"
+                      />
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">{exp.position}</p>

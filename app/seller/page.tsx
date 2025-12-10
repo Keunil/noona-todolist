@@ -30,6 +30,7 @@ const recentCompanies = [
     industry: "IT/소프트웨어",
     views: 245,
     inquiries: 12,
+    image: "/tech-company-logo.jpg",
   },
   {
     id: "2",
@@ -38,6 +39,7 @@ const recentCompanies = [
     industry: "제조업",
     views: 187,
     inquiries: 8,
+    image: "/factory-building.jpg",
   },
   {
     id: "3",
@@ -46,6 +48,7 @@ const recentCompanies = [
     industry: "바이오/헬스케어",
     views: 92,
     inquiries: 3,
+    image: "/biotech-lab.jpg",
   },
 ]
 
@@ -140,7 +143,6 @@ export default function SellerDashboardPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* 최근 등록 기업 */}
         <div className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden">
           <div className="p-4 border-b border-gray-200 flex justify-between items-center">
             <h2 className="text-lg font-semibold">최근 등록 기업</h2>
@@ -152,8 +154,12 @@ export default function SellerDashboardPage() {
           <div className="divide-y divide-gray-200">
             {recentCompanies.map((company) => (
               <div key={company.id} className="p-4 flex items-center">
-                <div className="h-16 w-16 bg-gray-200 rounded-md flex items-center justify-center flex-shrink-0">
-                  <span className="text-xs text-gray-500">사진</span>
+                <div className="h-16 w-16 bg-gray-200 rounded-md flex items-center justify-center flex-shrink-0 overflow-hidden">
+                  <img
+                    src={company.image || "/placeholder.svg"}
+                    alt={company.name}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 <div className="ml-4 flex-1 min-w-0">
                   <p className="text-sm font-medium text-gray-900 truncate">{company.name}</p>
