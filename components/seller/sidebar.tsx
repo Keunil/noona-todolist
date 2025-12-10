@@ -4,7 +4,17 @@ import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { LayoutDashboard, Building, LogOut, ChevronLeft, ChevronRight, PlusCircle, ShieldCheck } from "lucide-react"
+import {
+  LayoutDashboard,
+  Building,
+  LogOut,
+  ChevronLeft,
+  ChevronRight,
+  PlusCircle,
+  ShieldCheck,
+  FileText,
+  Inbox,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useMobile } from "@/hooks/use-mobile"
 
@@ -33,6 +43,16 @@ export function SellerSidebar() {
       title: "매물 관리",
       href: "/seller/listings",
       icon: <Building className="h-5 w-5" />,
+    },
+    {
+      title: "자문사 RFP 요청",
+      href: "/seller/rfp",
+      icon: <FileText className="h-5 w-5" />,
+    },
+    {
+      title: "RFP 관리",
+      href: "/seller/rfp/manage",
+      icon: <Inbox className="h-5 w-5" />,
     },
   ]
 

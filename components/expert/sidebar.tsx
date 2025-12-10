@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import {
   LayoutDashboard,
-  Award,
   FileText,
   Briefcase,
   Star,
@@ -14,6 +13,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Menu,
+  ShieldCheck,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useMobile } from "@/hooks/use-mobile"
@@ -30,9 +30,9 @@ export function ExpertSidebar() {
       icon: <LayoutDashboard className="h-5 w-5" />,
     },
     {
-      title: "인증 프로필",
-      href: "/expert/profile",
-      icon: <Award className="h-5 w-5" />,
+      title: "인증",
+      href: "/expert/verification",
+      icon: <ShieldCheck className="h-5 w-5" />,
     },
     {
       title: "RFP 관리",

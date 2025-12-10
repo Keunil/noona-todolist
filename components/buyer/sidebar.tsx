@@ -14,6 +14,8 @@ import {
   ChevronRight,
   Menu,
   ShieldCheck,
+  FileText,
+  Inbox,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useMobile } from "@/hooks/use-mobile"
@@ -48,6 +50,16 @@ export default function BuyerSidebar() {
       title: "관심 Deals",
       href: "/buyer/favorites",
       icon: <Heart className="h-5 w-5" />,
+    },
+    {
+      title: "자문사 RFP 요청",
+      href: "/buyer/rfp",
+      icon: <FileText className="h-5 w-5" />,
+    },
+    {
+      title: "RFP 관리",
+      href: "/buyer/rfp/manage",
+      icon: <Inbox className="h-5 w-5" />,
     },
   ]
 

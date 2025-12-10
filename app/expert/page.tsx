@@ -56,7 +56,6 @@ export default function ExpertDashboardPage() {
       budget: "5,000만 원",
       deadline: "2024-01-15",
       status: "new",
-      matchScore: 95,
       description: "클라우드 기반 SaaS 기업에 대한 재무·사업·기술 실사 요청",
     },
     {
@@ -67,7 +66,6 @@ export default function ExpertDashboardPage() {
       budget: "3,000만 원",
       deadline: "2024-01-20",
       status: "pending",
-      matchScore: 88,
       description: "자동차 부품 제조 기업의 기업가치평가 및 매각 자문",
     },
     {
@@ -78,7 +76,6 @@ export default function ExpertDashboardPage() {
       budget: "2,000만 원",
       deadline: "2024-01-10",
       status: "in-progress",
-      matchScore: 92,
       description: "바이오 헬스케어 스타트업 인수 관련 계약서 작성",
     },
   ]
@@ -263,13 +260,9 @@ export default function ExpertDashboardPage() {
                       <p className="text-gray-500">예산</p>
                       <p className="font-medium">{rfp.budget}</p>
                     </div>
-                    <div>
+                    <div className="col-span-2">
                       <p className="text-gray-500">마감일</p>
                       <p className="font-medium">{rfp.deadline}</p>
-                    </div>
-                    <div>
-                      <p className="text-gray-500">매칭 점수</p>
-                      <p className="font-medium text-green-600">{rfp.matchScore}%</p>
                     </div>
                   </div>
                 </CardContent>
